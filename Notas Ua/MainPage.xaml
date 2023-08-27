@@ -65,7 +65,7 @@
             El boton deberia desplegar una vista de otra pagina porque displayAlert no se puede estilizar-->
             <Button
                 BackgroundColor="AntiqueWhite"
-                Text="Rezarle a Dios"
+                Text="="
                 Clicked="Button_Clicked"
                 WidthRequest="150"/>
         </VerticalStackLayout>
