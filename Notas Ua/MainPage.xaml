@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="Notas_Ua.MainPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior
+         StatusBarColor="#121212"
+         StatusBarStyle="LightContent"/>
+    </ContentPage.Behaviors>
+
+    <ScrollView BackgroundColor="#121212">
+        <VerticalStackLayout Padding="30" Spacing="17">
+            <Label TextColor="AntiqueWhite"
+                   Text="Calculadora &#10;NotasUA"
+                   FontSize="38"
+                   FontAttributes="Bold"
+                   FontFamily=""/>
+            <Grid RowSpacing="15" HorizontalOptions="Center" Padding="0,20,20,20" Margin="0,30,0,30">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <Label
+                   VerticalOptions="Center"
+                   Grid.Row="0" Grid.Column="0"
+                   Text="Primer Parcial:"
+                   TextColor="AntiqueWhite"/>
+                <Entry
+                    Grid.Row="0" Grid.Column="1"
+                    x:Name="nota1"
+                    Keyboard="Numeric"
+                    ReturnType="Next"
+                    MaxLength="3"/>
+                <Label
+                    VerticalOptions="Center"
+                    Grid.Row="1" Grid.Column="0"
+                    Text="Segundo Parcial:"
+                    TextColor="AntiqueWhite"/>
+                <Entry
+                    Grid.Row="1" Grid.Column="1"
+                    x:Name="nota2"
+                    Keyboard="Numeric"
+                    ReturnType="Next"
+                    MaxLength="3"/>
+                <Label
+                    VerticalOptions="Center"
+                    Grid.Row="2" Grid.Column="0"
+                    Text="Tercer Parcial:"
+                    TextColor="AntiqueWhite"/>
+                <Entry
+                    Grid.Row="2" Grid.Column="1"
+                    x:Name="nota3"
+                    Keyboard="Numeric"
+                    ReturnType="Next"
+                    MaxLength="3"/>
+            </Grid>
+            <!--TODO
+            El boton deberia desplegar una vista de otra pagina porque displayAlert no se puede estilizar-->
+            <Button
+                BackgroundColor="AntiqueWhite"
+                Text="Rezarle a Dios"
+                Clicked="Button_Clicked"
+                WidthRequest="150"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
