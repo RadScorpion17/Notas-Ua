@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Behaviors;
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Maui.Views;
 using Microsoft.Maui;
@@ -35,9 +36,26 @@ namespace Notas_Ua
                 int notap2 = Convert.ToInt32(nota2.Text);
                 int notap3 = Convert.ToInt32(nota3.Text);
 
+                if ((notap1 >= 91 && notap1 <= 100) &&
+    (notap2 >= 91 && notap2 <= 100) &&
+    (notap3 >= 91 && notap3 <= 100))
+                {
+                    await DisplayAlert("Materia Exonerada 👍🏻", "Cuando alcanzas 91 o mas en tus tres parciales exoneras la materia y no rendis la final 😉","OK");
+                    return;
+                }
+
                 int[] notasParciales = { notap1, notap2, notap3 };
 
                 Array.Sort(notasParciales);
+
+                if ((notasParciales[0] >= 91 && notasParciales[0] <= 100) &&
+    (notasParciales[1] >= 91 && notasParciales[1] <= 100) &&
+    (notasParciales[2] >= 91 && notasParciales[2] <= 100) &&
+    (notasParciales[2] - notasParciales[0] == 2))
+                {
+                    await DisplayAlert("Materia Exonerada 👍🏻", "Cuando alcanzas 91 o mas en tus tres parciales exoneras la materia y no rendis la final 😉", "OK");
+                    return;
+                }
 
                 int sumaMejoresNotas = notasParciales[1] + notasParciales[2];
                 int promedioActual = sumaMejoresNotas / 2;
@@ -77,6 +95,13 @@ namespace Notas_Ua
         private void Popup_Clicked(object sender, EventArgs e)//Funcion para mostrar el popup, la clase <Popup> deberia recibir un objeto con las notas y el promedio
         {
             this.ShowPopup(new PopupPage());
+        }
+        
+        private void Limpiar_Clicked(object sender, EventArgs e)
+        {
+            nota1.Text = string.Empty;
+            nota2.Text = string.Empty;
+            nota3.Text = string.Empty;
         }
     }
 }
